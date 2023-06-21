@@ -1,8 +1,8 @@
 *{
     margin:0 ;
     padding: 0;
-    box-sizing: border-box;
 }
+
 @font-face {
     font-family: 'Oracle Sans';
     src:url('./OracleSans-Regular.ttf') format('truetype');
@@ -29,14 +29,51 @@ main{
     min-height: 100%;
 }
 form,#secondCard{
+    box-sizing: content-box;
     padding: 30px;
     width: 400px; 
-    background-color:#FCFBFA;
+
 
 }
 
-.form-floating{
-    border-bottom: 2px solid #CBC5BF;
-    /* position: relative; */
-    height: 3.4rem;
+#Color1{
+    color:#BB501C;
+    text-decoration-color: transparent;
 }
+
+
+
+
+.box-input {
+    position: relative;
+  }
+  
+.box-input input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+.box-input label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    pointer-events: none;
+    transition: .2s;
+  }
+  
+.box-input input:focus ~ label,
+.box-input input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+  }
