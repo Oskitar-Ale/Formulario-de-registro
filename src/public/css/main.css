@@ -1,0 +1,42 @@
+*{
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Oracle Sans';
+    src:url('./OracleSans-Regular.ttf') format('truetype');
+
+}
+body{
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+
+    /* font-size: 1.6rem;
+    line-height: 1.3; */
+    font-family: 'Oracle Sans'!important;
+    font-weight: 300 ;
+
+}
+main{
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100%;
+}
+form,#secondCard{
+    padding: 30px;
+    width: 400px; 
+    background-color:#FCFBFA;
+
+}
+
+.form-floating{
+    border-bottom: 2px solid #CBC5BF;
+    /* position: relative; */
+    height: 3.4rem;
+}
