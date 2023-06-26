@@ -1,3 +1,20 @@
+:root{
+    /* --body-color: linear-gradient(90deg, hsl(23, 84%, 60%) 0%, hsl(9, 92%, 54%) 100%);
+    --second-color:#040a10;
+    
+    --fondo: linear-gradient(90deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 0%) 100%);
+    --container-color: linear-gradient(136deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 80%) 100%);
+    --font-color: #8b8787;
+    --font1:'nightmare';
+    --font2:'Creepster', cursive; */
+
+    --btn-success: #6A9D67;
+    --btn-success-hover:#588757;
+    --btn-link:#BB501C;
+    --line-btn:#CBC5BF;
+    --text-color:#70665E;
+}
+
 *{
     margin:0 ;
     padding: 0;
@@ -19,7 +36,14 @@ body{
     font-weight: 300 ;
 
 }
-main{
+.bg-img{
+    background-image: url(/img/fondo2.jpg);
+    background-repeat: no-repeat;
+    background-position: 58% 20% !important;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#main-container{
     padding: 0;
     margin: 0 auto;
     display: flex;
@@ -28,21 +52,33 @@ main{
     flex-direction: column;
     min-height: 100%;
 }
-form,#secondCard{
+#main-form,#secondCard{
     box-sizing: content-box;
     padding: 30px;
-    width: 400px; 
-
+    width: 400px;
+}
+.btn-green{
+    color: #FFF !important;
+    background-color:var(--btn-success) !important; 
 
 }
+.fs-7{
+    font-size: 0.9rem;
+}
+.hover-effect:hover {
 
-#Color1{
-    color:#BB501C;
-    text-decoration-color: transparent;
+    background-color:var(--btn-success-hover)!important;
+}
+
+/* == Enlaces del login == */
+.link-l{
+    color:var(--btn-link) !important; 
+    text-decoration-color: transparent !important;
 }
 
 
 
+/* == Formulario == */
 
 .box-input {
     position: relative;
@@ -52,7 +88,7 @@ form,#secondCard{
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #000000;
+    color: #70665E;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
@@ -64,16 +100,74 @@ form,#secondCard{
     top: 0;
     left: 0;
     padding: 10px 0;
-    font-size: 16px;
-    color: #000000;
+    font-size: 18px;
+    color: #70665E;
     pointer-events: none;
     transition: .2s;
   }
+
+  .box-input input{
+    border-bottom: 2px solid;
+    color: #CBC5BF;
+}
   
 .box-input input:focus ~ label,
 .box-input input:valid ~ label {
-    top: -20px;
+    top: -30px;
     left: 0;
-    color: #bdb8b8;
-    font-size: 12px;
+    color: #70665E;
+    font-size: 14px;
   }
+
+
+.box-input input:focus{
+    border-bottom: 2px solid;
+    border-color: var(--btn-success);
+
+}
+
+
+
+
+
+/*============= SECCION DEL REGISTRO ================*/
+
+
+
+
+#main-container-R{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%
+}
+#main-form-R{  
+    max-width: 600px;
+    box-sizing: content-box;
+    padding: 30px;
+    width: 30.375rem; 
+}
+
+.content-input-r{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    color: #70665E;
+
+
+}
+.content-input-r input{
+    border-bottom: 2px solid;
+    color: #302d2a;
+
+
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid #CBC5BF;
+}
+
