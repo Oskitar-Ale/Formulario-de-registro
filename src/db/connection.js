@@ -1,29 +1,27 @@
 
-import mysql from "mysql2";
+import {createPool} from "mysql2/promise";
 
-const connection  = mysql.createConnection({
+export const pool  = createPool({
     host: 'localhost',
     user: 'root',
-    database: 'form_data',
+    database: 'schooldb',
     password: '123',
 
 });
 
-connection.connect((err)=> {
-    if (err){
-        console.log('Error al conectar a la DB:',err.message)
-    }else{
-        console.log('Conexion Exitosa a la DB.')
-    }
+// pool.connection((err)=> {
+//     if (err){
+//         console.log('Error al conectar a la DB:',err.message)
+//     }else{
+//         console.log('Conexion Exitosa a la DB.')
+//     }
 
-})
+// })
 
-connection.execute(
-    'SELECT * FROM  `users`',(err,results,fields) => {
-        console.log(results)
-        // console.log(fields)
-    }
-);
+// connection.execute(
+//     'SELECT * FROM  `users`',(err,results,fields) => {
+//         console.log(results)
+//         console.log(fields)
+//     }
+// );
 
-
-export default connection;
