@@ -31,3 +31,22 @@ export const createStudents = async (req, res) => {
 
 export const updateStudents = (req, res) => res.send('actualizando empleados');
 export const deleteStudents = (req, res) => res.send('eliminando empleados');
+
+
+export const createPanel = async (req, res) => {
+    const {nombre, apellidos, dni, celular, email} = (req.body);
+    const newData = {
+        dni,
+        nombre,
+        apellidos,
+        celular,
+        email
+    };
+    if(nombre.trim() === '' || apellidos.trim() === '' || dni.trim() === ''){
+        console.log("El nombre y los apellidos no pueden estar vacíos.");
+    }else{
+        console.log(newData);
+        await pool.query('INSERT INTO students set ?', [newData]);
+        res.send('received')
+    }
+};
