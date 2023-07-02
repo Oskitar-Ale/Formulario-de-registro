@@ -13,7 +13,6 @@
                     <div class="d-flex justify-content-between mb-5">
 
                         <h2>Lista de estudiantes </h2>
-                        <!-- Button trigger modal -->
                         <button type="button" class="btn  btn-success" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop">
                             agregar nuevo estudiante
@@ -22,6 +21,7 @@
                     <table class="table table-hover" id="TablaEstudiantes">
                         <thead>
                             <tr>
+                                <th scope="col">#</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>DNI</th>
@@ -30,7 +30,24 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            <% let counter = 1; %>
+                            <% data.forEach(student => { %>
+                            <tr>
+                                <td><%= counter %></td>
+                                <td><%= student.nombre %></td>
+                                <td><%= student.apellidos %></td>
+                                <td><%= student.dni %></td>
+                                <td><%= student.celular %></td>
+                                <td><%= student.email %></td>
+                                <td>
+                                    <a href="/panel/delete/<%= dni %>" class="btn btn-danger">delete</a>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn btn-secondary">edit</a>
+                                </td>
+                                <% counter++ %>
+                                <% }) %>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -38,7 +55,6 @@
         </div>
 
 
-        <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
