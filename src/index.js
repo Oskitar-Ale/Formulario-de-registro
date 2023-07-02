@@ -14,8 +14,9 @@ const app = express()
 app.use(express.json())
 //== Settings ==
 const __dirname = dirname(fileURLToPath(import.meta.url))
-app.set('views', join(__dirname, 'views'))
 app.set('view engine','ejs');
+app.set('views', join(__dirname, 'views'))
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
