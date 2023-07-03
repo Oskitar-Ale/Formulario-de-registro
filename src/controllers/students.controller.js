@@ -39,7 +39,16 @@ export const createPanel = async (req, res) => {
 };
 
 export const deletePanel = async (req, res) => {
+    
     const {dni} = req.params;
-    await pool.query('DELETE FROM students WHERE dni = ?', [dni])
-    res.redirect('panel')
+    console.log('se elimino el usuario:', dni);
+    await pool.query('DELETE FROM students WHERE dni = ?', [dni]);
+    res.redirect('/panel');
+}
+export const editPanel = async (req, res) => {
+    
+    const {dni} = req.params;
+    console.log('se edito el usuario:', dni);
+    await pool.query('UPDATE FROM students WHERE dni = ?', [dni]);
+    res.redirect('/panel');
 }
