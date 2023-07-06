@@ -4,8 +4,8 @@ import {createPanel, getPanel, deletePanel, editPanel} from "../controllers/stud
 
 
 router.get('/panel', getPanel);
-router.post('/panel', createPanel);
+router.post('/panel/create/', createPanel);
 router.get('/panel/delete/:dni',deletePanel)
-router.get('/panel/edit/:dni',editPanel)
+router.post('/panel/edit/',editPanel)
 
 export default router
