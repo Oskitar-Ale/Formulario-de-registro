@@ -5,7 +5,7 @@ export const pool  = createPool({
     host: 'localhost',
     user: 'root',
     database: 'schooldb',
-    password: '123',
+    password: '',
 
 });
 
