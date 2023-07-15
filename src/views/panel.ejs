@@ -2,30 +2,29 @@
 <html lang="en">
 <%- include('partials/head'); -%>
     <body class="">
+        <%- include('partials/nav'); -%>
         <div class="container">
             <br><br>
-            
             <form class="row g-3">
                 <br>
                 <br>
                 <div>
                     <div class="d-flex justify-content-between mb-5">
                         <h1>Lista de estudiantes </h1>
-                          <% if (createS) { %>
+                        <% if (createS) { %>
                             <div>
-                              <%= createS %>
+                                <%= createS %>
                             </div>
                             <% } %>
-
-                          <% if (deleteS) { %>
-                            <div>
-                              <%= deleteS %>
-                            </div>
-                            <% } %>
-
-                        <button type="button" class="btn  btn-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-                            agregar nuevo estudiante
-                        </button>
+                                <% if (deleteS) { %>
+                                    <div>
+                                        <%= deleteS %>
+                                    </div>
+                                    <% } %>
+                                        <button type="button" class="btn  btn-success" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop">
+                                            agregar nuevo estudiante
+                                        </button>
                     </div>
                     <table class="table table-hover" id="TablaEstudiantes">
                         <thead>
@@ -39,27 +38,36 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% let counter = 1; %>
-                            <% data.forEach(student => { %>
-                            <tr>
-                                <td><%= counter %></td>
-                                <td><%= student.nombre %></td>
-                                <td><%= student.apellidos %></td>
-                                <td><%= student.dni %></td>
-                                <td><%= student.celular %></td>
-                                <td><%= student.email %></td>
-                                <td>
-                                    <a href="/panel/delete/<%= student.dni %>" class="btn btn-danger">delete</a>
-                                </td>
-                                
-                                <td>
-                                    <a href="/panel/edit/<%= student.dni %>" type="button" class="btn  btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                                        a
-                                    </a> 
-                                </td>
-                                <% counter++ %>
-                                <% }) %>  
-                            </tr>
+                            <% let counter=1; %>
+                                <% data.forEach(student=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= counter %>
+                                        </td>
+                                        <td>
+                                            <%= student.nombre %>
+                                        </td>
+                                        <td>
+                                            <%= student.apellidos %>
+                                        </td>
+                                        <td>
+                                            <%= student.dni %>
+                                        </td>
+                                        <td>
+                                            <%= student.celular %>
+                                        </td>
+                                        <td>
+                                            <%= student.email %>
+                                        </td>
+                                        <td>
+                                            <a href="/panel/delete/<%= student.dni %>" class="btn btn-danger">Eliminar</a>
+                                        </td>
+                                        <td>
+                                            <a href="/panel/edit/<%= student.dni %>" type="button" class="btn  btn-secondary" data-bs-toggle="modal"data-bs-target="#staticBackdrop2">Editar</a>
+                                        </td>
+                                        <% counter++ %>
+                                            <% }) %>
+                                    </tr>
                         </tbody>
                     </table>
                 </div>
@@ -76,7 +84,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="" class="form-label">Documento de indetidad</label>
-                                <input type="number" class="form-control" name="dni" id="lbdni" >
+                                <input type="number" class="form-control" name="dni" id="lbdni">
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Nombres</label>
@@ -84,15 +92,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Apellidos</label>
-                                <input type="text" class="form-control" name="apellidos" id="lbapellidos" >
+                                <input type="text" class="form-control" name="apellidos" id="lbapellidos">
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Correo</label>
-                                <input type="email" class="form-control" name="email" id="lbmail" >
+                                <input type="email" class="form-control" name="email" id="lbmail">
                             </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Numero celular</label>
-                                <input type="number" class="form-control" name="celular" id="lbcel" >
+                                <input type="number" class="form-control" name="celular" id="lbcel">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -103,44 +111,45 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Editar información</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Editar información</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/panel/edit/" method="POST">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="" class="form-label">Documento de indetidad</label>
+                                    <input type="number" class="form-control" name="dni" id="lbdni">
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="form-label">Nombres</label>
+                                    <input type="text" class="form-control" name="nombre" id="lbnombre" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="form-label">Apellidos</label>
+                                    <input type="text" class="form-control" name="apellidos" id="lbapellidos">
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" name="email" id="lbmail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="form-label">Numero celular</label>
+                                    <input type="number" class="form-control" name="celular" id="lbcel">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form action="/panel/edit/" method="POST">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="" class="form-label">Documento de indetidad</label>
-                                <input type="number" class="form-control" name="dni" id="lbdni" >
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="form-label">Nombres</label>
-                                <input type="text" class="form-control" name="nombre" id="lbnombre" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="form-label">Apellidos</label>
-                                <input type="text" class="form-control" name="apellidos" id="lbapellidos" >
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="form-label">Correo</label>
-                                <input type="email" class="form-control" name="email" id="lbmail" >
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="form-label">Numero celular</label>
-                                <input type="number" class="form-control" name="celular" id="lbcel" >
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary" id="btn-guardar">Guardar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
             </div>
         </div>
         <!-- <script src="/js/negocio.js" type="text/javascript"></script>
@@ -149,4 +158,5 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
     </body>
+
 </html>
