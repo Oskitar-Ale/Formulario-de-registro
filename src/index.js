@@ -6,13 +6,15 @@ import flash from 'connect-flash';
 import session from 'express-session';
 import  {dirname, join} from 'path';
 import  {fileURLToPath} from 'url';
-import indexRoutes from './routes/index.js'; //== Import index routes ==
+import passport from 'passport';
+import authenticactionRoutes from './routes/authentication.routes.js'; //== Import index routes ==
 import studentsRoutes from './routes/students.routes.js'; //== Import students routes ==
 import requestsRoutes from './routes/requests.routes.js'; // == Import requests routes ==
-
 //== Initialization==
 const app = express()
+import './lib/passports.js';
 app.use(express.json())
+
 
 //== Settings ==
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -33,17 +35,24 @@ app.use(flash())
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'))
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 //== Variables ==
 app.use((req,res,next) => {
     res.locals.createS = req.flash('createSuccess');
     res.locals.deleteS = req.flash('deleteSuccess');
-
     res.locals.error = req.flash('error');
+
+    res.locals.loginS = req.flash('loginSuccess');
+    res.locals.loginM = req.flash('loginMessage');
+
+
     next()
 }); 
 
 //== Route  == 
-app.use(indexRoutes)
+app.use(authenticactionRoutes)
 app.use(studentsRoutes)
 app.use(requestsRoutes) 
 
